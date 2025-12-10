@@ -46,13 +46,13 @@ The CI/CD pipeline follows a standard DevOps workflow:
 ---
 
 ### 📊 Pipeline Flow Diagram
-
+```
 +-------------+        +-----------+        +-----------+        +----------------+
 | Developer   | -----> | GitHub    | -----> | Jenkins   | -----> | AWS EC2 Server |
 +-------------+        +-----------+        +-----------+        +----------------+
        |                     |                   |                      |
        |   Code Commit        |   Webhook        |   Pipeline Build      |   Deployment 
-
+```
 
 ## Repository Structure
 - `Jenkinsfile` – Defines the CI/CD pipeline stages  
