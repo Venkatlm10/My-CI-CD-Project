@@ -1,5 +1,6 @@
 # Ignore cache and history files
 .cache/
+.local/
 logs/
 *.swp
 
