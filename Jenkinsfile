@@ -1,5 +1,10 @@
-stage('Deploy') {
-    steps {
-        sh './scripts/deploy.sh'
+pipeline {
+    agent any
+    stages {
+        stage('Deploy') {
+            steps {
+                sh './scripts/deploy.sh'
+            }
+        }
     }
 }
