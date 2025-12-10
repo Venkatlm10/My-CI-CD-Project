@@ -1,0 +1,8 @@
+# Ignore cache and history files
+.cache/
+logs/
+*.swp
+
+# Ignore SSH private keys
+configs/.ssh/id_*
+
