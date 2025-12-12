@@ -2,7 +2,6 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_IMAGE = "venkateshvk/nginx-app"
         AWS_HOST = "ec2-user@ec2-13-200-169-238"
         DEPLOY_ENV = "staging"
         IMAGE_TAG = "${BUILD_NUMBER}"
@@ -21,23 +20,9 @@ pipeline {
             }
         }
 
-        stage('Docker Build & Push') {
-            steps {
-                withCredentials([usernamePassword(credentialsId: 'dockerhub-credentials',
-                                                  usernameVariable: 'DOCKER_USER',
-                                                  passwordVariable: 'DOCKER_PASS')]) {
-                    sh """
-                        docker login -u $DOCKER_USER -p $DOCKER_PASS
-                        docker build -t $DOCKER_IMAGE:$IMAGE_TAG .
-                        docker push $DOCKER_IMAGE:$IMAGE_TAG
-                    """
-                }
-            }
-        }
-
         stage('Deploy to AWS EC2') {
             steps {
-                sh "./scripts/restart.sh $AWS_HOST $DOCKER_IMAGE $IMAGE_TAG"
+                sh "./scripts/restart.sh $AWS_HOST $DEPLOY_ENV $IMAGE_TAG"
             }
         }
 
