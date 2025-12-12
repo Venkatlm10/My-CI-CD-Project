@@ -1,9 +1,55 @@
-# Ignore cache and history files
+# === OS / Editor junk ===
+.DS_Store
+Thumbs.db
+*.log
+*.swp
+*.swo
+
+# === Build artifacts (Java/Maven) ===
+target/
+*.class
+*.jar
+*.war
+*.ear
+
+# === Docker ===
+*.pid
+*.tmp
+*.bak
+*.seed
+docker-compose.override.yml
+
+# === Jenkins ===
+workspace/
+builds/
+*.jenkinsfile.backup
+
+# === Terraform ===
+*.tfstate
+*.tfstate.*
+.terraform/
+.terraform.lock.hcl
+crash.log
+
+# === AWS / Cloud keys ===
+*.pem
+*.key
+*.crt
+*.csr
+*.der
+*.p12
+*.pub
+
+# === Nginx specific ===
+# Ignore runtime logs and cache
+nginx/logs/
+nginx/cache/
+*.pid
+
+# === Cache and history ===
 .cache/
 .local/
 logs/
-*.swp
 
-# Ignore SSH private keys
+# === SSH private keys (project configs) ===
 configs/.ssh/id_*
-
