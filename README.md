@@ -2,11 +2,12 @@
 
 ## Overview
 This repository demonstrates a **Continuous Integration and Continuous Deployment (CI/CD)** pipeline using **Jenkins** and **GitHub** to automate application deployment on **AWS EC2**.  
+
 The project showcases DevOps best practices, including pipeline automation, environment configuration, and cloud deployment.
 
 This project demonstrates a **complete CI/CD pipeline** using:
 - **Git & GitHub** → Version control and source code management
-- **Jenkins** → Automation and pipeline orchestration
+- **Jenkins** → Automation and pipeline orchestration (on port `8080`)
 - **Maven** → Build tool for Java applications
 - **Docker** → Containerization
 - **Nginx** → Running inside a Docker container (on port `9090`)
@@ -43,7 +44,7 @@ This ensures **automation, reproducibility, and easy deployment**.
 ### 1. Git & GitHub
 - Initialize your repo with `git init`
 - Push code to GitHub:  
-  ```bash
+  ```
   git remote add origin <repo-url>
   git push -u origin main
 
@@ -51,14 +52,14 @@ This ensures **automation, reproducibility, and easy deployment**.
 - Launch an **EC2 instance** (Free Tier friendly).
 - Assign an **Elastic IP** for stable access.
 - Install required packages:  
-  ```bash
+  ```
   sudo apt update
   sudo apt install docker.io openjdk-11-jdk maven -y
 
 ### 3. Jenkins
 - Install Jenkins on your EC2 instance.
 - Start Jenkins service:
-  ```bash
+  ```
   sudo systemctl enable jenkins
   sudo systemctl start jenkins
 ### 4. Docker & Nginx (Containerized)
@@ -120,5 +121,5 @@ To get started, clone this repository onto your local machine or AWS EC2 instanc
 
 #### Using HTTPS
 ```
-git clone 
-cd 
+git clone https://github.com/Venkatlm10/My-CI-CD-Project.git
+```
