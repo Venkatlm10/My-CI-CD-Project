@@ -11,4 +11,4 @@ echo "🚀 Building Docker image..."
 docker build -t nginx-app:$TAG .
 
 echo "▶️ Running container..."
-docker run -d -p 80:80 nginx-app:$TAG
+docker run -d -p 9090:80 nginx-app:$TAG
