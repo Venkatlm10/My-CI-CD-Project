@@ -2,8 +2,8 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_IMAGE = "your-dockerhub-username/nginx-app"
-        AWS_HOST = "ec2-user@your-ec2-public-ip"
+        DOCKER_IMAGE = "venkateshvk/nginx-app"
+        AWS_HOST = "ec2-user@ec2-13-200-169-238"
         DEPLOY_ENV = "staging"
         IMAGE_TAG = "${BUILD_NUMBER}"
     }
@@ -11,7 +11,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/your-repo.git'
+                git branch: 'main', url: 'https://github.com/Venkatlm10/My-CI-CD-Project.git'
             }
         }
 
