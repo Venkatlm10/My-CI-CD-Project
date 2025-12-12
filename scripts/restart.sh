@@ -1,7 +1,14 @@
 #!/bin/bash
-./scripts/cleanup.sh
-./scripts/deploy.sh
+HOST=$1
+ENV=$2
+TAG=$3
+
+echo "🧹 Cleaning up old containers..."
 docker stop $(docker ps -q) || true
 docker rm $(docker ps -aq) || true
-docker build -t nginx-app:$BUILD_NUMBER .
-docker run -d -p 80:80 nginx-app:$BUILD_NUMBER
+
+echo "🚀 Building Docker image..."
+docker build -t nginx-app:$TAG .
+
+echo "▶️ Running container..."
+docker run -d -p 80:80 nginx-app:$TAG
